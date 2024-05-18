@@ -19,3 +19,16 @@ p {
   line-height: 1.5;
   align-items: justify;
 }
+
+nav a {
+  text-decoration: none;
+  color: inherit;
+  text-transform: capitalize;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

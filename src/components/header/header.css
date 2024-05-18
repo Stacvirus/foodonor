@@ -3,8 +3,9 @@ header {
   justify-content: space-around;
   align-items: center;
   position: relative;
-
-  padding: 50px 25rem;
+  margin: 0 auto;
+  padding: 50px 0;
+  width: max(70%, 500px)
 }
 
 .headerBrand {

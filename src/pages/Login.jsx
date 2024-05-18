@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "../components/Button";
+import Button from "../components/btn/Button";
 import { login } from "../services/requests";
 
 export default function Login() {
@@ -25,18 +25,20 @@ export default function Login() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        name
-        <input type='text' onChange={handleForm} name='name' />
-      </label>
-      <br />
-      <label>
-        password
-        <input type='password' onChange={handleForm} name='password' />
-      </label>
-      <br />
-      <Button type='submit' label='submit' />
-    </form>
+    <div className="userForm">
+      <form onSubmit={handleSubmit}>
+        <label>
+          name
+          <input type='text' onChange={handleForm} name='name' />
+        </label>
+        <br />
+        <label>
+          password
+          <input type='password' onChange={handleForm} name='password' />
+        </label>
+        <br />
+        <Button type='submit' label='submit' />
+      </form>
+    </div>
   );
 }

@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import Button from "../Button";
-import SectionDivider from "../SectionDivider";
+import Button from "../btn/Button";
+import SectionDivider from "../divider/SectionDivider";
 import "./action.css";
 import { fetchtarget } from "../../services/requests";
+
+import { useQuery } from "@tanstack/react-query";
 
 function ActionCard({ data, action, link }) {
   const btn = {
@@ -20,7 +22,7 @@ function ActionCard({ data, action, link }) {
         )}
       </div>
       <div className='actionFooter'>
-        <h3>{data.quantity}</h3>
+        <h3>{data.quantity}<span className="unit">kg</span></h3>
         <p>{link === "donation" ? data.expirationDate : data.requestedDate}</p>
       </div>
     </div>
@@ -28,15 +30,24 @@ function ActionCard({ data, action, link }) {
 }
 
 export default function Action({ head, action, target }) {
-  const [value, setValue] = useState([]);
+  // const [value, setValue] = useState([]);
 
-  useEffect(() => {
-    async function fetch() {
-      const res = await fetchtarget(target);
-      setValue(res);
-    }
-    fetch();
-  }, []);
+  const result = useQuery({
+    queryKey: [target],
+    queryFn: () => fetchtarget(target)
+  })
+
+  if(result.isLoading) return <div>loading...</div>
+  // console.log(JSON.parse(JSON.stringify(result)))
+  const value = result.data
+
+  // useEffect(() => {
+  //   async function fetch() {
+  //     const res = await fetchtarget(target);
+  //     setValue(res);
+  //   }
+  //   fetch();
+  // }, []);
 
   return (
     <div className='actionSection'>

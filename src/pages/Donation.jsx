@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { donates } from "../services/requests";
-import Button from "../components/Button";
+import Button from "../components/btn/Button";
 
 export default function Donation() {
   const [formData, setData] = useState({

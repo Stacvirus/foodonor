@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { demand } from "../services/requests";
-import Button from "../components/Button";
+import Button from "../components/btn/Button";
 
 export default function Demand() {
   const [formData, setData] = useState({

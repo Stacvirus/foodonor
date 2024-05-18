@@ -6,6 +6,8 @@
   padding: 50px 0;
 }
 
+
+
 .goalOne {
   display: flex;
   flex-direction: column;
@@ -28,4 +30,10 @@
   background-color: color-mix(in srgb, var(--lightGreen) 30%, var(--white) 70%);
   border-radius: 10px;
   outline: 3px solid var(--berge);
+}
+
+.goalSection {
+  padding: 1.2em 0;
+  margin: 0 auto;
+  width: max(70%, 500px)
 }

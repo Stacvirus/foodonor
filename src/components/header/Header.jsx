@@ -1,4 +1,4 @@
-import Button from "../Button";
+import Button from "../btn/Button";
 import Logo from "../../assets/logo.png";
 import "./header.css";
 

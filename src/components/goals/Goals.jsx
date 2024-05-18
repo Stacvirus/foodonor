@@ -1,4 +1,4 @@
-import SectionDivider from "./SectionDivider";
+import SectionDivider from "../divider/SectionDivider";
 import "./goal.css";
 
 function How({ title, body }) {

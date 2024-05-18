@@ -1,13 +1,13 @@
 import Nav from "./components/navBar/Nav";
-import Header from "./components/header/Header";
-import Action from "./components/action/Action";
-import Goals from "./components/Goals";
+import Body from "./components/Body";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Donation from "./pages/Donation";
 import { useEffect, useState } from "react";
 import { setToken } from "./services/requests";
 import Demand from "./pages/Demand";
+
+import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from "react-router-dom";
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -20,17 +20,18 @@ export default function App() {
       setToken(userIn.token);
     }
   }, []);
+
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<Nav />}>
+        <Route index element={<Body />} />
+        <Route path="register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+      </Route>
+    )
+  )
+
   return (
-    <div>
-      <Nav />
-      <Header />
-      <Action head='Donations' action='donates' target='donation' />
-      <Action head='Demand' action='demand' target='recipient' />
-      <Goals />
-      <Register />
-      <Login />
-      <Donation />
-      <Demand />
-    </div>
+    <RouterProvider router={router} />
   );
 }
